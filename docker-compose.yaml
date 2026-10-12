@@ -1,0 +1,13 @@
+# One-shot NVIDIA GPU check for Docker Compose.
+# Requires a Linux Docker host with the NVIDIA driver and NVIDIA Container Toolkit.
+services:
+  gpu-check:
+    image: nvidia/cuda:12.4.1-base-ubuntu22.04
+    command: ["nvidia-smi"]
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
