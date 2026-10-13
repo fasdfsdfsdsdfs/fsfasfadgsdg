@@ -1,0 +1,9 @@
+name: CI
+on: [push]
+jobs:
+  build:
+    runs-on: latchkey-scan-f139272d
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: echo "Building..."
